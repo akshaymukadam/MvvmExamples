@@ -4,15 +4,15 @@ class CounterModel {
 
     private var currentCounter: Int = 0
 
-    fun incrementCounter(): Counter {
+    fun incrementCounter() {
         currentCounter += 1
-        return Counter(currentCounter)
     }
 
-    fun decrementCounter(): Counter {
+    fun decrementCounter() {
         if (currentCounter == 0)
-            return Counter(counterValue = 0)
+            return
         currentCounter -= 1
-        return Counter(currentCounter)
     }
+
+    fun getCounterValue() = Counter(currentCounter)
 }

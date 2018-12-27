@@ -16,7 +16,8 @@ class CounterModelTest {
     @Test
     fun testShouldIncrementCounter() {
         for (i in 1..3) {
-            Assert.assertEquals(i, counterModel.incrementCounter().counterValue)
+            counterModel.incrementCounter()
+            Assert.assertEquals(i, counterModel.getCounterValue().counterValue)
         }
     }
 
@@ -24,13 +25,14 @@ class CounterModelTest {
     fun testShouldDecrementCounter() {
         incrementCounter()
         for (i in 6 downTo 0) {
-            Assert.assertEquals(i, counterModel.decrementCounter().counterValue)
+            counterModel.decrementCounter()
+            Assert.assertEquals(i, counterModel.getCounterValue().counterValue)
         }
     }
 
     @Test
     fun testShouldNotDecrementCounter() {
-        Assert.assertEquals(0, counterModel.decrementCounter().counterValue)
+        Assert.assertEquals(0, counterModel.getCounterValue().counterValue)
     }
 
     private fun incrementCounter() {
